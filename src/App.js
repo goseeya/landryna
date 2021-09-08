@@ -4,7 +4,6 @@ import Languages from "./containers/Languages";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const App = () => {
-  // TODO: sorting
   return (
     <Router>
       <div className="App">

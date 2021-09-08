@@ -33,14 +33,11 @@ const Countries = () => {
     (country) => country.area === maxArea
   )[0]?.name;
 
-  // TODO corner cases when 2 countries or more have the same population/area
   const mockedSummaryData = {
     avgPop,
     smallestCountry,
     biggestCountry,
   };
-
-  // TODO make the table react to changes in countries
 
   const onChangeSortingValue = (event) => {
     switch (event.target.value) {
