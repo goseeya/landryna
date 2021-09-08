@@ -16,33 +16,36 @@ const Languages = () => {
   const languagesNamesArray = [];
   const languageFullNamesArray = [];
   countries.forEach((country) =>
-    country.languages.forEach(
-      (lang) => {
-        if(languagesNamesArray.indexOf(lang.iso639_1) === -1) {
-            languagesNamesArray.push(lang.iso639_1);
-            languageFullNamesArray.push(lang.name);
-        }
-    }
-    )
+    country.languages.forEach((lang) => {
+      if (languagesNamesArray.indexOf(lang.iso639_1) === -1) {
+        languagesNamesArray.push(lang.iso639_1);
+        languageFullNamesArray.push(lang.name);
+      }
+    })
   );
   return (
-    <div>
-      Languages table
-      <table>
-          <thead>
+    <div className="Languages">
+      <table className="Languages-table">
+        <thead>
           <tr>
-          <th>Language</th>
-          <th>Countries</th>
-          <th>Population</th>
-        </tr>
-          </thead>
-          <tbody>
-            {languagesNamesArray.filter(el => !!el).map((el) => (
-            <LanguageRow languageCode={el} languageName={languageFullNamesArray[languagesNamesArray.indexOf(el)]} key={el} />
+            <th>Language</th>
+            <th>Countries</th>
+            <th>Population</th>
+          </tr>
+        </thead>
+        <tbody>
+          {languagesNamesArray
+            .filter((el) => !!el)
+            .map((el) => (
+              <LanguageRow
+                languageCode={el}
+                languageName={
+                  languageFullNamesArray[languagesNamesArray.indexOf(el)]
+                }
+                key={el}
+              />
             ))}
-          </tbody>
-        
-        
+        </tbody>
       </table>
     </div>
   );

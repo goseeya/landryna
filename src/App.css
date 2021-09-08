@@ -1,11 +1,116 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: #281617;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  color: rgb(230, 211, 211);
+}
+
+.App-header {
+  font-size: larger;
+  font-weight: 600;
+}
+
+.App-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px;
+  background-size: cover;
+  background-image: url("https://cdn.stocksnap.io/img-thumbs/960w/fireworks-background_0EVLKQWXFH.jpg");
+}
+
+.App-nav:after {
+  content: "";
+  background: -webkit-linear-gradient(
+    top,
+    rgba(92, 7, 52, 1) 0%,
+    rgb(48, 23, 7) 12%,
+    rgb(186, 56, 56) 47%,
+    rgb(83, 0, 0) 100%
+  );
+  display: block;
+  background-repeat: no-repeat;
+  height: 8px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.App-nav-elem {
+  margin: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  color: rgb(232, 214, 214);
+}
+
+.Countries,
+.Languages {
+  margin-top: 100px;
+}
+
+.Countries-table,
+.Languages-table {
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Countries-table,
+.Languages-table td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.Countries-table tr:nth-child(even),
+.Languages-table tr:nth-child(even) {
+  background-color: #411a1a;
+}
+
+.Countries-table tr:hover,
+.Languages-table tr:hover {
+  background-color: rgb(143, 94, 94);
+  color: rgb(83, 0, 0);
+}
+
+.Countries-table th,
+.Languages-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #9d1f1f;
   color: white;
+}
+
+.Countries-sorting {
+  margin-bottom: 20px;
+}
+
+.Summary {
+  border: 2px solid #8e0e31;
+  width: 500px;
+  justify-content: center;
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.Languages-table {
+  margin-bottom: 20px;
+}
+
+.Languages-table ul {
+  list-style-type: none;
 }

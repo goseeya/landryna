@@ -75,10 +75,11 @@ const Countries = () => {
   };
 
   return (
-    <div className="App">
+    <div className="Countries">
       Sort by
-      <div onChange={onChangeSortingValue}>
-        <input type="radio" value="nameAsc" name="sortBy" /> Name A-Z
+      <div className="Countries-sorting" onChange={onChangeSortingValue}>
+        <input type="radio" value="nameAsc" name="sortBy" defaultChecked /> Name
+        A-Z
         <input type="radio" value="nameDesc" name="sortBy" /> Name Z-A
         <input type="radio" value="populationAsc" name="sortBy" /> Population
         low-big
@@ -87,22 +88,21 @@ const Countries = () => {
         <input type="radio" value="areaAsc" name="sortBy" /> Area small-big
         <input type="radio" value="areaDesc" name="sortBy" /> Area big-small
       </div>
-      <table>
+      <table className="Countries-table">
         <thead>
-        <tr>
-          <th>Name</th>
-          <th>Region</th>
-          <th>Area</th>
-          <th>Population</th>
-        </tr>
+          <tr>
+            <th>Name</th>
+            <th>Region</th>
+            <th>Area</th>
+            <th>Population</th>
+          </tr>
         </thead>
-        
+
         <tbody>
-        {countries.map((el) => (
-          <CountryRow countryData={el} key={el.numericCode} />
-        ))}
+          {countries.map((el) => (
+            <CountryRow countryData={el} key={el.numericCode} />
+          ))}
         </tbody>
-        
       </table>
       <Summary summaryData={mockedSummaryData} />
     </div>

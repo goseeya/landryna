@@ -1,6 +1,6 @@
 const Summary = ({ summaryData }) => {
   return (
-    <div className="summary">
+    <div className="Summary">
       <p>
         Average population of all the countries:{" "}
         {Math.round((summaryData.avgPop / 1000000) * 10) / 10}

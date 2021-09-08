@@ -4,8 +4,8 @@ import { shallow } from "enzyme";
 import CountryRow from "./CountryRow";
 import * as mockedCountryRow from "../mock/countryRow.json";
 import * as mockedCountryRowNullable from "../mock/countryRowNullable.json";
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { configure } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 import { render } from "@testing-library/react";
 
 configure({ adapter: new Adapter() });
@@ -25,7 +25,13 @@ describe("CountryRow", () => {
       expect(component.find(".country-row")).toHaveLength(1);
     });
     it('should display "no data" when area is  null', () => {
-      const component = render( <table><tbody><CountryRow countryData={mockedCountryRowNullable} /></tbody></table>);
+      const component = render(
+        <table>
+          <tbody>
+            <CountryRow countryData={mockedCountryRowNullable} />
+          </tbody>
+        </table>
+      );
       expect(component.getByText(/no data/i)).toBeInTheDocument();
     });
   });
