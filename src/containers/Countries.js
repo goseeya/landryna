@@ -33,7 +33,7 @@ const Countries = () => {
     (country) => country.area === maxArea
   )[0]?.name;
 
-  const mockedSummaryData = {
+  const summaryData = {
     avgPop,
     smallestCountry,
     biggestCountry,
@@ -42,31 +42,31 @@ const Countries = () => {
   const onChangeSortingValue = (event) => {
     switch (event.target.value) {
       case "nameAsc":
-        setCountries(countries.sort((a, b) => (a.name < b.name ? -1 : 1)));
+        setCountries([...countries.sort((a, b) => (a.name < b.name ? -1 : 1))]);
         break;
       case "nameDesc":
-        setCountries(countries.sort((a, b) => (a.name > b.name ? -1 : 1)));
+        setCountries([...countries.sort((a, b) => (a.name > b.name ? -1 : 1))]);
         break;
       case "populationAsc":
-        setCountries(
-          countries.sort((a, b) => (a.population < b.name ? -1 : 1))
-        );
+        setCountries([
+          ...countries.sort((a, b) => (a.population < b.population ? -1 : 1)),
+        ]);
         break;
       case "populationDesc":
-        setCountries(
-          countries.sort((a, b) => (a.population > b.population ? -1 : 1))
-        );
+        setCountries([
+          ...countries.sort((a, b) => (a.population > b.population ? -1 : 1)),
+        ]);
         break;
       case "areaAsc":
-        setCountries(() =>
-          countries.sort((a, b) => (a.area < b.area ? -1 : 1))
-        );
+        setCountries(() => [
+          ...countries.sort((a, b) => (a.area < b.area ? -1 : 1)),
+        ]);
         break;
       case "areaDesc":
-        setCountries(countries.sort((a, b) => (a.area > b.area ? -1 : 1)));
+        setCountries([...countries.sort((a, b) => (a.area > b.area ? -1 : 1))]);
         break;
       default:
-        setCountries(countries.sort((a, b) => (a.name < b.name ? -1 : 1)));
+        setCountries([...countries.sort((a, b) => (a.name < b.name ? -1 : 1))]);
         break;
     }
   };
@@ -96,12 +96,12 @@ const Countries = () => {
         </thead>
 
         <tbody>
-          {countries.map((el) => (
-            <CountryRow countryData={el} key={el.numericCode} />
+          {countries.map((el, index) => (
+            <CountryRow countryData={el} key={index} />
           ))}
         </tbody>
       </table>
-      <Summary summaryData={mockedSummaryData} />
+      <Summary summaryData={summaryData} />
     </div>
   );
 };
